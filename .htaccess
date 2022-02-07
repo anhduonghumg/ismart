@@ -1,0 +1,28 @@
+RewriteEngine On 
+RewriteCond  %{REQUEST_FILENAME} !-f
+RewriteCond  %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+RewriteCond %{QUERY_STRING} (.*) 
+
+RewriteRule "index.html" "index.php"
+RewriteRule "gioithieu.html" "index.php?mod=post"
+RewriteRule "kiemtradonhang.html" "index.php?mod=order&action=check"
+RewriteRule "tintuc.html" "index.php?mod=page"
+RewriteRule "sanpham.html" "index.php?mod=product"
+RewriteRule "trangchu.html" "index.php?mod=home"
+RewriteRule "giohang.html" "index.php?mod=cart&action=show"
+RewriteRule "thanhtoan.html" "index.php?mod=cart&action=checkout"
+RewriteRule "thongtindonhang.html" "index.php?mod=order&action=result"
+
+
+RewriteRule "them-vao-gio/([0-9]+).html$" "index.php?mod=cart&action=add_cart&id=$1"
+RewriteRule "mua-ngay/([0-9]+).html$" "index.php?mod=order&action=buy_now&id=$1"
+RewriteRule "tim-kiem?([a-zA-Z0-9]+)$" "?mod=search&action=index&s=$1"
+RewriteRule "xoa/([0-9]+)$" "index.php?mod=cart&action=delete&id=$1"
+RewriteRule "xoa-tat-ca" "index.php?mod=cart&action=delete_all"
+
+
+RewriteRule "^([a-zA-Z0-9_-]+)-([0-9]+).html$" "index.php?mod=page&action=detail&id=$2"
+RewriteRule "^([a-zA-Z0-9_-]+)/([0-9]+).html$" "index.php?mod=product&action=detail&id=$2"
+
+RewriteRule "^([a-zA-Z0-9_-]+)/([0-9]+)/([0-9]+)$" "?mod=product&controller=category&parent_id=$2&cat_id=$3"

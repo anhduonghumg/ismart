@@ -1,0 +1,32 @@
+ul#list-pagging {
+    margin-top: 12px;
+}
+
+ul#list-pagging li {
+    list-style: none;
+    float: left;
+    border: 1px solid #dedede;
+    margin: 0px 2px;
+}
+
+ul#list-pagging li a {
+    display: block;
+    margin: 5px 8px;
+    color: #333;
+}
+
+ul#list-pagging li.active {
+    border: 1px solid #f00;
+}
+
+ul#list-pagging li.active a {
+    color: #f00;
+}
+
+.num_rows {
+    font-style: italic;
+    margin: 5px 0px;
+    color: #4c484470;
+    font-size: 12px;
+    float: left;
+}
