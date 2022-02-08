@@ -61,48 +61,61 @@
 </div>
 </div>
 <div id="menu-respon">
-    <a href="?page=home" title="" class="logo">VSHOP</a>
+    <a href="trangchu.html" title="" class="logo">ISMART</a>
     <div id="menu-respon-wp">
         <ul class="" id="main-menu-respon">
             <li>
-                <a href="?page=home" title>Trang chủ</a>
+                <a href="trangchu.html" title>Trang chủ</a>
             </li>
             <li>
-                <a href="?page=category_product" title>Điện thoại</a>
+                <a href="sanpham.html" title>Sản phẩm</a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="?page=category_product" title="">Iphone</a>
-                    </li>
-                    <li>
-                        <a href="?page=category_product" title="">Samsung</a>
+                        <a href="dien-thoai/0/1" title="">Điện thoại</a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="?page=category_product" title="">Iphone X</a>
+                                <a href="samsung/1/6" title="">Samsung</a>
                             </li>
                             <li>
-                                <a href="?page=category_product" title="">Iphone 8</a>
+                                <a href="iphone/1/7" title="">Iphone</a>
+                            </li>
+                            <li>
+                                <a href="xiaomi/1/8" title="">Xiaomi</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="?page=category_product" title="">Nokia</a>
+                        <a href="may-tinh-bang/0/2" title="">Máy tính bảng</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="ipad/2/9" title="">Ipad</a>
+                            </li>
+                            <li>
+                                <a href="galaxy-tab/2/10" title="">Galaxy Tab</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="laptop/0/3" title="">Laptop</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="macbook/3/11" title="">Macbook</a>
+                            </li>
+                            <li>
+                                <a href="surface/3/12" title="">Surface</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="?page=category_product" title>Máy tính bảng</a>
+                <a href="tintuc.html" title>Blog</a>
             </li>
             <li>
-                <a href="?page=category_product" title>Laptop</a>
+                <a href="gioithieu.html" title>Giới thiệu</a>
             </li>
             <li>
-                <a href="?page=category_product" title>Đồ dùng sinh hoạt</a>
-            </li>
-            <li>
-                <a href="?page=blog" title>Blog</a>
-            </li>
-            <li>
-                <a href="#" title>Liên hệ</a>
+                <a href="kiemtradonhang.html" title>Kiểm tra đơn hàng</a>
             </li>
         </ul>
     </div>
