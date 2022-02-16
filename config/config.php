@@ -13,7 +13,7 @@ ob_start();
  * 
  */
 
-$config['base_url'] = "http://localhost/ismart.com/";
+$config['base_url'] = "http://localhost:8080/ismart/";
 
 
 $config['default_module'] = 'home';

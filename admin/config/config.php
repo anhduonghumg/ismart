@@ -14,7 +14,7 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
  * 
  */
 
-$config['base_url'] = "http://localhost/ismart.com/admin";
+$config['base_url'] = "http://localhost:8080/ismart/admin";
 
 
 $config['default_module'] = 'home';

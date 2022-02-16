@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    var myTimer = null;
     // price
     filter_data();
     filter_product();
@@ -154,21 +155,50 @@ $(document).ready(function () {
     // autoComplete-search
     $("#s").keyup(function (e) {
         var search_text = $(this).val();
-        if (search_text != "") {
-            $.ajax({
-                url: "?mod=search&action=autocomplete",
-                method: "POST",
-                data: {
-                    s: search_text,
-                },
-                success: function (response) {
-                    $("#show-list").html(response);
-                },
-            })
-        } else {
-            $("#show-list").html("");
+        if (myTimer) {
+            clearTimeout(myTimer);
         }
+        myTimer = setTimeout(function () {
+            if (search_text != "") {
+                $.ajax({
+                    url: "?mod=search&action=autocomplete",
+                    method: "POST",
+                    data: {
+                        s: search_text,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if ((data.list_search).length > 0) {
+                            $output = "";
+                            $.each(data.list_search, function (key, value) {
+                                let url_detail = value.friendly_detail;
+                                let thumb = value.product_thumb;
+                                let price = formatNumber(value.price, ".", ",");
+                                let name = value.product_name;
+                                $output += "<li>";
+                                $output += "<div class='img'>";
+                                $output += "<a href=" + url_detail + ".html><img src=admin/" + thumb + " alt=''></a>";
+                                $output += "</div>";
+                                $output += "<div class='info'>";
+                                $output += "<a href=" + url_detail + " class='name-product'>" + name + "</a>";
+                                $output += "<p class='price'>" + price + "đ</p>";
+                                $output += "</div>";
+                                $output += "</li>";
+                            });
+                            $output += "<a href='tim-kiem?s=" + data.input_text + "' class='query-search'>Hiển thị kết quả cho <span>" + data.input_text + "</span></a>";
+                        } else {
+                            $output = "<p class='query-search'>Không có kết quả nào!</p>";
+                        }
+                        $('#show-list').html($output);
+                    }
+                });
+            } else {
+                $("#show-list").html("");
+            }
+        }, 400)
+
     });
+
     // Set searched text in input field on click of search button
     $(document).on("click", "ul#show-list li", function (e) {
         $a = $(this).find('.name-product').text();
@@ -176,9 +206,22 @@ $(document).ready(function () {
         $("#s").val($a);
         $("#show-list").html("");
         window.location.replace($b);
-
     });
 })
+
+
+// format tiền 
+function formatNumber(nStr, decSeperate, groupSeperate) {
+    nStr += '';
+    x = nStr.split(decSeperate);
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + groupSeperate + '$2');
+    }
+    return x1 + x2;
+}
 
 // Pagging ajax
 // $(document).ready(function() {

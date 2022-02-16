@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="head-body" class="clearfix">
+                <div id="head-body" class="clearfix">         
                     <div class="wp-inner">
                         <a href="?" title="" id="logo" class="fl-left"><img src="public/images/logo.png" /></a>
                         <div id="search-wp" class="fl-left">
@@ -60,9 +60,11 @@
                             </form>
                             <div class="autocomplete-search">
                                 <ul id="show-list">
+                                  
                                 </ul>
                             </div>
                         </div>
+                        <div class="modal"></div>
                         <div id="action-wp" class="fl-right">
                             <div id="advisory-wp" class="fl-left">
                                 <span class="title">Tư vấn</span>

@@ -100,7 +100,6 @@ function filterAction()
             $output = "<h3>Không tìm thấy kết quả nào.</h3>";
         }
 
-
         $result = array(
             'output' => $output,
             'total_product' => $total_product,
@@ -117,23 +116,13 @@ function autocompleteAction()
     if (isset($_POST['s'])) {
         $input_text = $_POST['s'];
         $list_search = get_list_search($input_text);
-        if (!empty($list_search)) {
-            foreach ($list_search as &$item) {
-                $price = currency_format($item['price']);
-                echo "<li>
-                    <div class='img'>
-                        <a href='{$item['friendly_detail']}'><img src='{$item['thumbnail']}' alt=''></a>
-                    </div>
-                    <div class='info'>
-                        <a href='{$item['friendly_detail']}' class='name-product'>{$item['product_name']}</a>
-                        <p class='price'>{$price}</p>
-                    </div>
-                </li>
-                ";
-            }
-            echo "<a href='tim-kiem?s={$input_text}' class='query-search'>Hiển thị kết quả cho <span>{$input_text}</span></a>";
-        } else {
-            echo "<p class='query-search'>Không có kết quả nào!</p>";
-        }
+
+        $result = array(
+            'list_search' => $list_search,
+            'input_text' => $input_text
+        );
+        $show_data = json_encode($result);
+        echo $show_data;
     }
 }
+
