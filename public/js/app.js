@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    var myTimer = null;
+
     // price
     filter_data();
     filter_product();
@@ -153,12 +153,12 @@ $(document).ready(function () {
     });
 
     // autoComplete-search
+    var myTimer = null;
     $("#s").keyup(function (e) {
-        var search_text = $(this).val();
-        if (myTimer) {
-            clearTimeout(myTimer);
-        }
+        $('#loading').removeClass('hidden');
+        clearTimeout(myTimer);
         myTimer = setTimeout(function () {
+            var search_text = $('#s').val();
             if (search_text != "") {
                 $.ajax({
                     url: "?mod=search&action=autocomplete",
@@ -175,27 +175,31 @@ $(document).ready(function () {
                                 let thumb = value.product_thumb;
                                 let price = formatNumber(value.price, ".", ",");
                                 let name = value.product_name;
-                                $output += "<li>";
-                                $output += "<div class='img'>";
-                                $output += "<a href=" + url_detail + ".html><img src=admin/" + thumb + " alt=''></a>";
-                                $output += "</div>";
-                                $output += "<div class='info'>";
-                                $output += "<a href=" + url_detail + " class='name-product'>" + name + "</a>";
-                                $output += "<p class='price'>" + price + "đ</p>";
-                                $output += "</div>";
-                                $output += "</li>";
+
+                                $output += `<li>
+                            <div class='img'>
+                            <a href="${url_detail}".html><img src="admin/${thumb}" alt=''></a>
+                            </div>
+                            <div class='info'>
+                            <a href="${url_detail}" class='name-product'>${name}</a>
+                            <p class='price'>${price}đ</p>
+                            </div>
+                            </li>`;
                             });
-                            $output += "<a href='tim-kiem?s=" + data.input_text + "' class='query-search'>Hiển thị kết quả cho <span>" + data.input_text + "</span></a>";
+                            $output += `<a href='tim-kiem?s=${data.input_text}' class='query-search'>Hiển thị kết quả cho <span>${data.input_text}</span></a>`;
                         } else {
-                            $output = "<p class='query-search'>Không có kết quả nào!</p>";
+                            $output = `<p class='query-search'>Không có kết quả nào!</p>`;
                         }
                         $('#show-list').html($output);
+                        $('#loading').addClass('hidden');
                     }
+
                 });
             } else {
+                $('#loading').addClass('hidden');
                 $("#show-list").html("");
             }
-        }, 400)
+        }, 1000)
 
     });
 
@@ -222,6 +226,8 @@ function formatNumber(nStr, decSeperate, groupSeperate) {
     }
     return x1 + x2;
 }
+
+
 
 // Pagging ajax
 // $(document).ready(function() {
