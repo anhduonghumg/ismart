@@ -228,7 +228,6 @@ function formatNumber(nStr, decSeperate, groupSeperate) {
 }
 
 
-
 // Pagging ajax
 // $(document).ready(function() {
 //     $(".section-detail").on("click", "ul#list-item li a", function(e) {
