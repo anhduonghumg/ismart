@@ -278,7 +278,7 @@
     width: 400px;
     z-index: 99999999;
     background-color: #ffff;
-    max-height: 400px;
+    max-height: 600px;
     overflow: auto;
 }
 
@@ -339,9 +339,11 @@
     height: 2em;
     width: 2em;
     overflow: visible;
-    margin: auto;
-    top: -17px;
-    left: 135px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* margin: auto; */
+    top: -10px;
+    left: 180px;
     bottom: 0;
     right: 0;
     

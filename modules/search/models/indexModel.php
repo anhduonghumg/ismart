@@ -1,7 +1,7 @@
 <?php
 function get_list_search($key)
 {
-    $result = db_fetch_array("SELECT * From `tbl_products` WHERE `product_name` LIKE '%$key%' ORDER BY `price` DESC LIMIT 10");
+    $result = db_fetch_array("SELECT * From `tbl_products` WHERE `product_name` LIKE '%$key%' ORDER BY `price` DESC LIMIT 5");
     foreach ($result as &$item) {
         $item['url_product_detail'] = "?mod=product&action=detail&id={$item['product_id']}";
         $item['thumbnail'] = "admin/{$item['product_thumb']}";

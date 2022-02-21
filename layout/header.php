@@ -63,7 +63,7 @@
                                   
                                 </ul>
                             </div>
-                            <div id="loading" class="hidden">Loading&#8230;</div>
+                            <!-- <div id="loading" class="hidden">Loading&#8230;</div> -->
                         </div>
                         <div id="action-wp" class="fl-right">
                             <div id="advisory-wp" class="fl-left">
